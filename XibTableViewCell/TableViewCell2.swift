@@ -26,12 +26,24 @@ class TableViewCell2: UITableViewCell {
     
     @IBOutlet weak var textFieldd: UITextField!
     override func awakeFromNib() {
+        
+        popUpView.isHidden = true
+        popUpView.layer.cornerRadius = 5
+        //popUpView.layer.masksToBounds = true
+        popUpView.backgroundColor = .white
+        
+        popUpView.layer.masksToBounds = false
+        popUpView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        popUpView.layer.shadowRadius = 2;
+        popUpView.layer.shadowOpacity = 0.3;
+
+        
         super.awakeFromNib()
         textFieldd.layer.masksToBounds = true
         textFieldd.layer.cornerRadius = textFieldd.bounds.height/2
         textFieldd.layer.borderWidth = 0.2
         textFieldd.backgroundColor = UIColor(red: 227/255, green: 227/255, blue: 227/255, alpha: 0.3)
-        textFieldd.placeholder = "comment"
+        textFieldd.placeholder = "Write a comment..."
     }
     
     @IBAction func likeButton(_ sender: Any) {
@@ -44,6 +56,21 @@ class TableViewCell2: UITableViewCell {
         }else if(isLiked == true){
             LikeButton.setImage(#imageLiteral(resourceName: "like"), for: .normal)
             isLiked = false
+        }
+        
+    }
+    
+    @IBOutlet weak var dotButton: UIButton!
+    
+    @IBOutlet weak var popUpView: UIView!
+    @IBAction func PressButtonDot(_ sender: Any) {
+        
+        if(popUpView.isHidden == true){
+            dotButton.setImage(#imageLiteral(resourceName: "dotblue"), for: .normal)
+            popUpView.isHidden = false
+        }else{
+            dotButton.setImage(#imageLiteral(resourceName: "dot"), for: .normal)
+            popUpView.isHidden = true
         }
         
     }
