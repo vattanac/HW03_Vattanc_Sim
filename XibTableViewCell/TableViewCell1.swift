@@ -35,14 +35,17 @@ class TableViewCell1: UITableViewCell {
             //cell.like = like - 1 
             
         }else if(isLiked == true){
-            LikeButton.setImage(#imageLiteral(resourceName: "like"), for: .normal)
+            LikeButton.setImage(#imageLiteral(resourceName: "likefil"), for: .normal)
             isLiked = false
         }
         
     }
+    
     override func awakeFromNib() {
         
         super.awakeFromNib()
+        
+       
         
         popUpView.isHidden = true
         popUpView.layer.cornerRadius = 5
@@ -59,7 +62,7 @@ class TableViewCell1: UITableViewCell {
         textFieldd.layer.cornerRadius = textFieldd.bounds.height/2
         textFieldd.layer.borderWidth = 0.2
         textFieldd.backgroundColor = UIColor(red: 227/255, green: 227/255, blue: 227/255, alpha: 0.3)
-        textFieldd.placeholder = "Write a comment..."
+        textFieldd.placeholder = "  Write a comment..."
     }
     
    
@@ -68,7 +71,7 @@ class TableViewCell1: UITableViewCell {
     @IBAction func PressButtonDot(_ sender: Any) {
       
             if(popUpView.isHidden == true){
-                dotButton.setImage(#imageLiteral(resourceName: "dotblue"), for: .normal)
+                dotButton.setImage(#imageLiteral(resourceName: "dotBlue"), for: .normal)
                 popUpView.isHidden = false
             }else{
                 dotButton.setImage(#imageLiteral(resourceName: "dot"), for: .normal)
@@ -76,4 +79,23 @@ class TableViewCell1: UITableViewCell {
             }
         
     }
+    
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        var touch: UITouch? = touches.first
+        //location is relative to the current view
+        // do something with the touched point
+        if touch?.view != popUpView {
+            popUpView.isHidden = true
+            if(popUpView.isHidden == true){
+                dotButton.setImage(#imageLiteral(resourceName: "dot"), for: .normal)
+                //popUpView.isHidden = false
+                
+            }
+        }
+        
+    }
+    
+   
 }

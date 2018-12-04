@@ -29,15 +29,15 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        
         
         arraylist = [cellData(cell: 1, imageProfile: #imageLiteral(resourceName: "crush"), userName: "Bopha Chnas", postImage:nil, des: "I'm silly and funny", privatcyIcon: #imageLiteral(resourceName: "public"),likeAmount:243,commentAmount:430,shareAmount:455,hour:2,location:"· Takéo ·"),
                      
-                     cellData(cell: 1, imageProfile: #imageLiteral(resourceName: "v"), userName: "Vattanac Sim", postImage:nil, des: "Follow your heart", privatcyIcon: #imageLiteral(resourceName: "key"),likeAmount:500,commentAmount:430,shareAmount:455,hour:4,location:"· Kondal ·"),
-                     cellData(cell: 2, imageProfile: #imageLiteral(resourceName: "v"), userName: "Vattanac Sim", postImage:#imageLiteral(resourceName: "kh"), des: "Spring Framework remains as popular today as it was when I first used it 12 years back. How is this possible in the incredibly dynamic world where architectures have completely changed?", privatcyIcon: #imageLiteral(resourceName: "acc"),likeAmount:345,commentAmount:40,shareAmount:455,hour:5,location:"· Batdombong ·"),
-                     cellData(cell: 1, imageProfile: #imageLiteral(resourceName: "v"), userName: "Vattanac Sim", postImage:nil, des: "Thing Take Time!!", privatcyIcon: #imageLiteral(resourceName: "public"),likeAmount:554,commentAmount:168,shareAmount:455,hour:16,location:"· kompot ·"),
-                     cellData(cell: 2, imageProfile: #imageLiteral(resourceName: "v"), userName: "Vattanac Sim", postImage:#imageLiteral(resourceName: "vot"), des: "Firebase gives you the tools to develop high-quality apps, grow your user base, and earn more money. We cover the essentials so you can monetize your business and focus on your users.", privatcyIcon: #imageLiteral(resourceName: "acc"),likeAmount:19,commentAmount:30,shareAmount:455,hour:13,location:"· koh kong ·"),
-                      cellData(cell: 1, imageProfile: #imageLiteral(resourceName: "crush"), userName: "Bopha Chnas", postImage:nil, des: "This my homework", privatcyIcon: #imageLiteral(resourceName: "public"),likeAmount:500,commentAmount:788,shareAmount:455,hour:23,location:"· kep ·")
+                     cellData(cell: 1, imageProfile: #imageLiteral(resourceName: "v"), userName: "Vattanac Sim", postImage:nil, des: "Follow your heart", privatcyIcon: #imageLiteral(resourceName: "key"),likeAmount:500,commentAmount:830,shareAmount:100,hour:4,location:"· Kandal ·"),
+                     cellData(cell: 2, imageProfile: #imageLiteral(resourceName: "v"), userName: "Vattanac Sim", postImage:#imageLiteral(resourceName: "kh"), des: "Spring Framework remains as popular today as it was when I first used it 12 years back. How is this possible in the incredibly dynamic world where architectures have completely changed?", privatcyIcon: #imageLiteral(resourceName: "acc"),likeAmount:345,commentAmount:40,shareAmount:600,hour:5,location:"· Batdambang ·"),
+                     cellData(cell: 1, imageProfile: #imageLiteral(resourceName: "v"), userName: "Vattanac Sim", postImage:nil, des: "Thing Take Time!!", privatcyIcon: #imageLiteral(resourceName: "public"),likeAmount:554,commentAmount:168,shareAmount:300,hour:16,location:"· Kompot ·"),
+                     cellData(cell: 2, imageProfile: #imageLiteral(resourceName: "v"), userName: "Vattanac Sim", postImage:#imageLiteral(resourceName: "vot"), des: "Firebase gives you the tools to develop high-quality apps, grow your user base, and earn more money. We cover the essentials so you can monetize your business and focus on your users.", privatcyIcon: #imageLiteral(resourceName: "acc"),likeAmount:1000,commentAmount:30,shareAmount:765,hour:13,location:"· Koh Kong ·"),
+                     cellData(cell: 1, imageProfile: #imageLiteral(resourceName: "crush"), userName: "Bopha Chnas", postImage:nil, des: "This my homework", privatcyIcon: #imageLiteral(resourceName: "public"),likeAmount:500,commentAmount:788,shareAmount:900,hour:23,location:"· Kep ·")
         ]
         
     }
@@ -81,6 +81,7 @@ class TableViewController: UITableViewController {
             cell.hour.text = String(arraylist[indexPath.row].hour)
             cell.location.text = arraylist[indexPath.row].location
             
+        
             return cell
             
         }else {
@@ -99,6 +100,18 @@ class TableViewController: UITableViewController {
         }else{
             return 210
         }
+    }
+    
+    //
+    public func hasImageViewInside(_ cell: UITableViewCell) -> Bool {
+        for child in cell.subviews {
+            if let temcell = child as? UIImageView {
+                // print("have imageview")
+                return true
+                
+            }
+        }
+        return false
     }
 }
 
